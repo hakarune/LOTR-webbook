@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title> LOTRO | Visual & Condensed </title>
+		<meta Content='text/html' charset='utf-8' />
+		<!--[if lt IE 9]>
+			<script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<meta name="viewport" content=" width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0; ">
+		<meta name="title" content="LOTRO | Visual & Condensed" />
+		<meta name="description" content="A condensed telling of The Lord of the Rings trilogy with a map" />
+		<meta name="keywords" content="hakarune, lotro, lord of the rings, two towers, return of the king, condensed, fellowship of the ring, the ring, map, class, WSU, Vancouver, DTC, CSCI, web design, html5, css3" />
+		<meta name="og:type" content="website" />
+		<meta name="og:image" content="images/touch-icon-ipad-retina.png"/>
+		<meta name="og:title" content="LOTRO | Visual & Condensed" />
+		<meta name="og:description" content="A condensed telling of The Lord of the Rings trilogy with a map" />
+		<meta name="og:url" content=""/>
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+		<link rel="apple-touch-icon" href="images/touch-icon-iphone.png" /> 
+		<link rel="apple-touch-icon" sizes="76x76" href="images/touch-icon-ipad.png" /> 
+		<link rel="apple-touch-icon" sizes="120x120" href="images/touch-icon-iphone-retina.png" />
+		<link rel="apple-touch-icon" sizes="152x152" href="images/touch-icon-ipad-retina.png" />
+		<meta name="language" content="en" />
+		<meta name="author" content="Trevor Elliott" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<link rel="apple-touch-startup-image" href="images/landscape.jpg" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape" />
+		<link rel="apple-touch-startup-image" href="images/portrait.jpg" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait" />
+		<link rel="apple-touch-startup-image" href="images/iphone.jpg" media="screen and (max-device-width: 320px" />
+
+		<script src='js/underscore-min.js'></script>
+		<script src='https://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.js'></script>
+		<link href='https://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.css' rel='stylesheet' />
+		<link href='https://fonts.googleapis.com/css?family=Bilbo+Swash+Caps' rel='stylesheet' type='text/css'>
+		<link href='css/normalize.css' rel='stylesheet' />
+		<link href='css/styles.css' rel='stylesheet' />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		
+	</head>
+	<body class='section-0'>
+	
+		
+	<audio preload="auto" autoplay loop>
+		<source src="audio/Misty_Mountains.ogg" type="audio/ogg">
+		<source src="audio/Misty_Mountains.mp3" type="audio/mpeg">
+	</audio>
+		<div id='pane'><div id='map'></div></div>
+
+			<article>
+				<progress id="progressbar" value="0" max="100"></progress>
+				<section id='cover' class='cover title active'>
+					<h1>The Lord of The Rings (Condensed)</h1>
+					<p>by J.R.R. Tolkien</p>
+					<img src="images/swipe_01.png" />
+				</section>
+				<section id='book1' class='cover book1'>
+					<h1>Book 1: The Fellowship of The Ring</h1>
+				</section>
+				<section id='hobbiton' class='book1'>
+					<h2>It All Started in Hobbiton</h2>
+					<p>Frodo gets the ring and Gandalf tells Frodo to take it to the elves, he is to meet him at the Inn in Bree (Sam follows).</p>
+				</section>
+				<section id='maggot' class='book1'>
+					<h2>To Farmer Maggot's Farm</h2>
+					<p>On the way Frodo and Sam meet up with Merry and Pippin who are steal.</p>
+				</section>
+				<section id='bree' class='book1'>
+					<h2>Onward to Bree</h2>
+					<p>They head to Bree to meet up with Gandalf and encounter the Wring Wraiths and narrowly escape. Later on in Bree they Meet Strider and he informs them they are in danger and leads them out of Bree</p>
+				</section>
+				<section id='weathertop' class='book1'>
+					<h2>The Witch-king of Angmar</h2>
+					<p>Frodo is stabbed by the Witch-king of Angmar. With the help of Strider and Arwin, they all escape the wraiths and they make it to Rivendell; where Frodo is healed.</p>
+				</section>
+				<section id='rivendell' class='book1'>
+					<h2>The Council of Elrond</h2>
+					<p>They all make it to Rivendell. At the Council of Elrond it is decided the ring must be taken to Mordor and destroyed by being cast into the fires of Mount Doom. A fellowship is created out of 9 unlikely companions: four Hobbits, two Men, one Elf, one Dwarf, and one Istar wizard. This number was chosen to match the number of Ring Wraiths.</p>
+				</section>
+				<section id='moria' class='book1'>
+					<h2>The Mines of Moria</h2>
+					<p>The Fellowship sets out from Rivendell to destroy the ring and come across many hardships. Frodo tells them that he wishes to travel by the way of Moria and under the mountain. They meet several people on there way and Gandalf Dies</p>
+				</section>
+				<section id='lothlorien' class='book1'>
+					<h2>Foretelling of the Future</h2>
+					<p>Along the way they also meet Galadriel, the co-ruler and Lady of Lothlórien. She gives them advice and gifts and then they depart. They take boats through the river and later dock at Argonath.</p>
+				</section>
+				<section id='argonath' class='book1'>
+					<h2>The Breaking of the Fellowship</h2>
+					<p>The party splits up into different groups. Boromir dies, Merry and Pippin are taken by the orcs, Aragorn, Gimli, and Legolas chase after the orcs to save them. And Frodo and Sam head out by themselves to Mordor.</p>
+					<iframe src="https://www.youtube.com/embed/rCY_Hjv7vKc" frameborder="0" allowfullscreen></iframe>
+				</section>
+				<section id='towers' class='cover book2'>
+					<h1>Book 2: The Two Towers</h1>
+				</section>
+				<section id='dead-marshes' class='book2'>
+					<h2>Trust the First Random Stranger You Meet...</h2>
+					<p>
+						Sam and Frodo meet with Gollum. He convinces them that he should be their guide into Mordor, he knows a secret path. He leads them via a special path through the Dead Marshes and more.
+					</p>
+				</section>
+				<section id='fangorn-1' class='book2'>
+					<h2>Talking Trees and None Are Female</h2>
+					<p>
+						Merry and Pippin meet Treebeard of the Ents, oldest of the race; there were only 3 Ents left, Treebeard, Finglas, and Fladrif. After their 3-day long talk, the halflings gain Treebeard as an ally against Saruman, because he is logging the forest illegally.
+					</p>
+				</section>
+				<section id='fangorn-2' class='book2'>
+					<h2>Return of the...Wizard</h2>
+					<p>
+						Aragorn, Gimli, and Legolas find out that Gandalf is still alive and is is now sparkly white and not actually dead.			
+					</p>
+				</section>
+				<section id='henneth-annun' class='book2'>
+					<h2>It All Started in Hobbiton</h2>
+					<p>
+						Sam, Frodo, and Gollum are captured by Faramir, he had a dream that they would come after he found his brother dead. Faramir takes them to Henneth Annûn to question them and Frodo gives him the trial of The Ring. They are quickly released and back on their journey.
+					</p>
+				</section>
+				<section id='edoras' class='book2'>
+					<h2>In Comes the True White Wizard</h2>
+					<p>
+						Gandalf, Aragorn, Gimli, and Legolas go to Rohan and free King Théoden from the grasp of Saruman. King Théoden's mind was being controlled with the help of his own advisor. He banishes the advisor and plans to help the people of his land, only to find out that an army is on it's way to attack them. Éowyn,  King Théoden's niece, falls for Aragorn, but he lets her down and is later thought dead.		
+					</p>
+				</section>
+				<section id='isengard' class='book2'>
+					<h2>When Nature Attacks</h2>
+					<p>
+						With the help from the Ents, Merry and Pippin destroy Isengard, stopping Saruman. Then Gandalf, Aragorn, and Gimli meet up with them. Saruman has been working with Sauron for ages and escaped death.				
+					</p>
+				</section>
+				<section id='helms-deep' class='book2'>
+					<h2>Epic Battle that is WAY better than "300"</h2>
+					<p>
+						Aragorn, Gimli, and Legolas and the men of Rohan (plus some elves) kill the 10,000 army of Uruk-Hai, but only after Gandalf comes back with the missing "Riders of Rohan" that had been banished (including Éomer, the King's nephew.				
+					</p>
+				</section>
+				<section id='cirith-ungol' class='book2'>
+					<h2>Itsy Bitsy Spider</h2>
+					<p>
+						Gollum leads Frodo and Sam into a trap and tries to feed them to Shelob in her lair, Torech Ungol, beneath Cirith Ungol. Shelob poisons Frodo, and Sam believes Frodo to be dead and takes the ring and Sting (Frodo's sword) to continue with the journey alone. Sam later finds out Frodo is alive and goes back to try and rescue him.				
+					</p>
+					<iframe src="https://www.youtube.com/embed/pA0ffVBw584" frameborder="0" allowfullscreen></iframe>
+				</section>
+				<section id='return' class='cover book3'>
+					<h1>Book 3: The Return of the King</h1>
+				</section>
+				<section id='dunharrow' class='book3'>
+					<h2>The Path is Open</h2>
+					<p>
+						Everyone prepares for war in Gondor and Rohan is headed to aid them, but Aragorn must take a different path, Paths of the Dead under the White Mountains, and compels the ghosts to help in battle. Legolas and Gimli tag along. When the reach the cave Aragorn's riding skill is unparalleled and Gimli is afraid to enter the mountain.
+					</p>
+				</section>
+
+				<section id='minastirith-1' class='book3'>
+					<h2>The Attack of Giant Elephants and Pirates</h2>
+					<p>
+						The Battle at Gondor starts and then ends; with the help of Rohan and ghost warriors of old, the good guys win.
+					</p>
+				</section>
+
+				<section id='mordor' class='book3'>
+					<h2>Disguise Skill +10</h2>
+					<p>
+						 Frodo and Sam escape Shelob and make it into Mordor and disguise themselves to sneak around. And they lost track of Gollum after he tried to get them killed.
+					</p>
+				</section>
+
+				<section id='black-gate' class='book3'>
+					<h2>Quick Make a Distraction!</h2>
+					<p>
+						Arragorn and the others create a diversion for Frodo and Sam. (In comes epic battle speech)
+					</p>
+				</section>
+
+				<section id='mount-doom' class='book3'>
+					<h2>The Final Struggle</h2>
+					<p>
+						Frodo and Sam make it into Mount Doom, all thanks to the distraction from their friends. As they sit at the top ready to finally destroy The Ring, Frodo can't bring himself to destroy it. Luckily Gollum has been there waiting for them. He attacks Frodo, and they begin to struggle for The Ring. Gollum bites off Frodo's finger with The Ring and then trips, falling into the magma.
+					</p>
+				</section>
+
+				<section id='minas-tirith-2' class='book3'>
+					<h2>The End Comes by Small Stature</h2>
+					<p>
+						Frodo and Sam barely escape the mountain after destroying the ring and killing Gollum. Aragorn is crowned king and marries his elven woman. Gimli and Legolas announce their lifelong friendship. And everyone in Middle Earth acknowledges the Hobbits as the most important of all people and bow to them (including King Aragorn). 
+					</p>
+					<iframe seamless src="https://www.youtube.com/embed/q19z6-tbIHY?rel=0" frameborder="0" allowfullscreen=""></iframe>
+				</section>
+				<section id='ending' class='book3'>
+					<h2>A Home Destroyed</h2>
+					<p>
+						Frodo and the Hobbits return to the shire and find it ravaged and oppressed. They organize a rebellion against the evil people. It turns out to be Saruman (who's lost his powers) who is destroying the Shire. Frodo spares Saruman, who later is killed by his servant WormTongue. They Rebuild the Shire. Sam marries. Frodo leaves with all the ring bearers, Bilbo, Gandalf, and the rest of the Elves to the West.
+					</p>
+				</section>
+				<section id='footer' class='book3'>
+				<small class='footer'>
+				  Adapted from <a href='http://www.amazon.com/J-R-R-Tolkien-Boxed-Hobbit-Rings/dp/0345340426/ref=cm_lmf_tit_1'>J.R.R. Tolkien</a><br/>
+				  Map data &copy; <a href='gplus.to/hakarune'>Hakarune</a><br/>
+				  Original Map &copy; <a href='http://tolkiengateway.net/'>Chris Taylor</a><br/>
+				  Map designed with &copy; <a href='http://mapbox.com/about/maps/'>MapBox</a>
+				</small>
+			  </section>
+			</article>
+			
+
+		<script>
+			var geojson = [
+			  { "geometry": { "type": "Point", "coordinates": [-65, 45] },
+				"properties": { "id": "cover", "zoom": 4 } },
+				{ "geometry": { "type": "Point", "coordinates": [-77, 45] },
+				"properties": { "id": "book1", "zoom": 5 } },
+			  { "geometry": { "type": "Point", "coordinates": [-77.6953, 44.653] },
+				"properties": { "id": "hobbiton" } },
+			  { "geometry": { "type": "Point", "coordinates": [-72.9712, 42.261] },
+				"properties": { "id": "maggot" } },
+			  { "geometry": { "type": "Point", "coordinates": [-59.2383, 43.5804] },
+				"properties": { "id": "bree" } },
+			  { "geometry": { "type": "Point", "coordinates": [-44.7803, 44.7779] },
+				"properties": { "id": "weathertop" } },
+			  { "geometry": { "type": "Point", "coordinates": [-9.9976, 45.8288] },
+				"properties": { "id": "rivendell" } },
+			  { "geometry": { "type": "Point", "coordinates": [-17.6221, 22.1467] },
+				"properties": { "id": "moria" } },
+			  { "geometry": { "type": "Point", "coordinates": [-1.3623, 14.0513] },
+				"properties": { "id": "lothlorien" } },
+			  { "geometry": { "type": "Point", "coordinates": [20.6543, -23.6043] },
+				"properties": { "id": "argonath" } },
+			  { "geometry": { "type": "Point", "coordinates": [33.4863, -25.8394] },
+				"properties": { "id": "towers", "zoom": 5 } },
+			  { "geometry": { "type": "Point", "coordinates": [33.4863, -25.8394] },
+				"properties": { "id": "dead-marshes" } },
+			  { "geometry": { "type": "Point", "coordinates": [-15.9961, -9.4924] },
+				"properties": { "id": "fangorn-1" } },
+			  { "geometry": { "type": "Point", "coordinates": [-4.3506, -8.9719] },
+				"properties": { "id": "fangorn-2" } },
+			  { "geometry": { "type": "Point", "coordinates": [43.6816, -37.1253] },
+				"properties": { "id": "henneth-annun" } },
+			  { "geometry": { "type": "Point", "coordinates": [-6.7236, -28.9216] },
+				"properties": { "id": "edoras" } },
+			  { "geometry": { "type": "Point", "coordinates": [-25.1807, -14.0087] },
+				"properties": { "id": "isengard" } },
+			  { "geometry": { "type": "Point", "coordinates": [-20.6543, -24.1668] },
+				"properties": { "id": "helms-deep" } },
+			  { "geometry": { "type": "Point", "coordinates": [48.9111, -43.644] },
+				"properties": { "id": "cirith-ungol" } },
+		   	  { "geometry": { "type": "Point", "coordinates": [-7, -30] },
+				"properties": { "id": "return", "zoom": 5 } },
+			  { "geometry": { "type": "Point", "coordinates": [-7.0752, -30.7513] },
+				"properties": { "id": "dunharrow" } },
+			  { "geometry": { "type": "Point", "coordinates": [35.4746, -44.7467] },
+				"properties": { "id": "minastirith-1" } },
+			  { "geometry": { "type": "Point", "coordinates": [56.6894, -41.935] },
+				"properties": { "id": "mordor" } },
+			  { "geometry": { "type": "Point", "coordinates": [47.9004, -28.5749] },
+				"properties": { "id": "black-gate" } },
+			  { "geometry": { "type": "Point", "coordinates": [59.0625, -38.5138]},
+				"properties": { "id": "mount-doom" } },
+			  { "geometry": { "type": "Point", "coordinates": [37.5746, -44.7467] },
+				"properties": { "id": "minas-tirith-2" } },
+			  { "geometry": { "type": "Point", "coordinates": [-77.6953, 44.653] },
+				"properties": { "id": "ending" } },
+			  { "geometry": { "type": "Point", "coordinates": [60, 20] },
+				"properties": { "id": "footer", "zoom": 3 } }
+			];
+			var tiles = mapbox.layer().tilejson({
+			  tiles: [ "http://a.tiles.mapbox.com/v3/hakarune.Middle-Earth/{z}/{x}/{y}.png" ]
+			});
+			var icons = mapbox.markers.layer()
+			  // Load up markers from geojson data.
+			  .features(geojson)
+			  // Define a new factory function. Takes geojson input and returns a
+			  // DOM element that represents the point.
+			  .factory(function(f) {
+				var el = document.createElement('div');
+				el.className = 'icon icon-' + f.properties.id;
+				return el;
+			  });
+
+			// Creates the map with tile and marker layers and
+			// no input handlers (mouse drag, scrollwheel, etc).
+			var map = mapbox.map('map', [tiles, icons], null, []);
+
+			// Array of story section elements.
+			var sections = document.getElementsByTagName('section');
+
+			// Array of marker elements with order matching section elements.
+			var markers = _(sections).map(function(section) {
+			  return _(icons.markers()).find(function(m) {
+				return m.data.properties.id === section.id;
+			  });
+			});
+
+			// Helper to set the active section.
+			var setActive = function(index, ease) {
+			  // Set active class on sections, markers.
+			  _(sections).each(function(s) { s.className = s.className.replace(' active', '') });
+			  _(markers).each(function(m) { m.element.className = m.element.className.replace(' active', '') });
+			  sections[index].className += ' active';
+			  markers[index].element.className += ' active';
+
+			  // Set a body class for the active section.
+			  document.body.className = 'section-' + index;
+			var d = document.getElementById("pane");
+			  d.className = "section-" + index;
+			  
+			  // Ease map to active marker.
+			  if (!ease) {
+				map.centerzoom(markers[index].location, markers[index].data.properties.zoom||6);
+			  } else {
+				map.ease.location(markers[index].location).zoom(markers[index].data.properties.zoom||6).optimal(0.7, 1.00);
+			  }
+
+			  return true;
+			};
+
+			// Bind to scroll events to find the active section.
+			window.onscroll = _(function() {
+			  // IE 8
+			  if (window.pageYOffset === undefined) {
+				var y = document.documentElement.scrollTop;
+				var h = document.documentElement.clientHeight;
+			  } else {
+				var y = window.pageYOffset;
+				var h = window.innerHeight;
+			  }
+
+			  // If scrolled to the very top of the page set the first section active.
+			  if (y === 0) return setActive(0, true);
+
+			  // Otherwise, conditionally determine the extent to which page must be
+			  // scrolled for each section. The first section that matches the current
+			  // scroll position wins and exits the loop early.
+			  var memo = 0;
+			  var buffer = (h * 0.3333);
+			  var active = _(sections).any(function(el, index) {
+				memo += el.offsetHeight;
+				return y < (memo-buffer) ? setActive(index, true) : false;
+			  });
+
+			  // If no section was set active the user has scrolled past the last section.
+			  // Set the last section active.
+			  if (!active) setActive(sections.length - 1, true);
+			}).debounce(10);
+
+			// Set map to first section.
+			setActive(0, false);
+		</script>
+		<script src="js/jquery.hammer.min.js"></script>
+		<script src="js/hammer.js"></script>
+		<script>
+			$(document).ready(function() {
+				$(".title").hammer().on("swipeleft", function(event){
+					$('.book1').css("display", "block");
+					$('.title').css("display", "none");
+					$('html,body').animate({scrollTop:50},0);
+				});
+				$(".book1").hammer().on("swipeleft", function(event){
+					$('.book2').css("display", "block");
+					$('.book1').css("display", "none");
+					$('html,body').animate({scrollTop:41},0);
+				});
+				$(".book1").hammer().on("swiperight", function(event){
+					$('.title').css("display", "block");
+					$('.book1').css("display", "none");
+					$('html,body').animate({scrollTop:0},0);
+				});
+				$(".book2").hammer().on("swiperight", function(event){
+					$('.book1').css("display", "block");
+					$('.book2').css("display", "none");
+					$('html,body').animate({scrollTop:45},0);
+				});
+				$(".book2").hammer().on("swipeleft", function(event){
+					$('.book3').css("display", "block");
+					$('.book2').css("display", "none");
+					$('html,body').animate({scrollTop:51},0);
+				});
+				$(".book3").hammer().on("swiperight", function(event){
+					$('.book2').css("display", "block");
+					$('.book3').css("display", "none");
+					$('html,body').animate({scrollTop:50},0);
+				});
+			});
+		</script>
+		<script>
+			$(window).scroll(function () {
+			  var s = $(window).scrollTop(),
+					d = $(document).height(),
+					c = $(window).height();
+					scrollPercent = (s / (d-c)) * 100;
+					var position = scrollPercent;
+
+			   $("#progressbar").attr('value', position);
+			});	
+		</script>
+	</body>
+</html>

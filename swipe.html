@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title> Swipe Pages </title>
+		<meta Content='text/html' charset='utf-8' />
+		<!--[if lt IE 9]>
+			<script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<meta name="viewport" content=" width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0; ">
+		<meta name="language" content="en" />
+		<meta name="author" content="Trevor Elliott" />
+		<link href='https://rawgithub.com/hakarune/HTML5-Normalize-Reset/master/html5-reset.css' rel='stylesheet' />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		<style>
+			body, html {padding:0; margin:0; height:100%;}
+			ul { list-style:none; padding:0; width:90%; height:100%; background:#888; margin:0 auto;}
+			li {float:left; width:100%; height:100%; color:#222;}
+			p { 
+				text-align: center;
+				font-size: 30em;
+				line-height: 2em;
+			}
+
+			#wrap {
+				width:100%;
+				height :100%;
+				overflow:hidden;
+				background:#000;
+			}
+
+			ul.layer {
+				width: 1000%;
+				height :100%    
+			}
+
+			li.post {
+				margin: 0;
+				float: left;
+				width: 10%;
+				height: 100%;
+				background: #f00;
+			}
+			li.post:nth-child(odd) {
+				background: #7d7e7d; /* Old browsers */
+				/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+				background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzdkN2U3ZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwZTBlMGUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+); /* FF3.6+ */ /* Chrome,Safari4+ */ /* Chrome10+,Safari5.1+ */ /* Opera 11.10+ */ /* IE10+ */
+				background: -webkit-gradient(linear, 0 0, 0 100%, from(#7d7e7d), to(#0e0e0e));
+				background: -webkit-linear-gradient(#7d7e7d 0%, #0e0e0e 100%);
+				background: -moz-linear-gradient(#7d7e7d 0%, #0e0e0e 100%);
+				background: -o-linear-gradient(#7d7e7d 0%, #0e0e0e 100%);
+				background: linear-gradient(#7d7e7d 0%, #0e0e0e 100%); /* W3C */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 ); /* IE6-8 */
+			}
+			
+			li.post:nth-child(even) {
+				background: #ff3019; /* Old browsers */
+				/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+				background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmMzAxOSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNjZjA0MDQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+				background: -moz-linear-gradient(top,  #ff3019 0%, #cf0404 100%); /* FF3.6+ */
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff3019), color-stop(100%,#cf0404)); /* Chrome,Safari4+ */
+				background: -webkit-linear-gradient(top,  #ff3019 0%,#cf0404 100%); /* Chrome10+,Safari5.1+ */
+				background: -o-linear-gradient(top,  #ff3019 0%,#cf0404 100%); /* Opera 11.10+ */
+				background: -ms-linear-gradient(top,  #ff3019 0%,#cf0404 100%); /* IE10+ */
+				background: linear-gradient(to bottom,  #ff3019 0%,#cf0404 100%); /* W3C */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3019', endColorstr='#cf0404',GradientType=0 ); /* IE6-8 */
+			}
+			@media (max-width: 1000px) {
+				p { line-height: 1.5em;}
+			}
+			@media (max-width: 800px) {
+				p {font-size: 25em;}
+			}
+			@media (max-width: 600px) {
+				p {font-size: 20em; line-height: 1em;}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<ul class="layer">
+				<li class="post">
+					<p>
+						1
+					</p>
+				</li>
+				<li class="post">
+					<p>
+						2
+					</p>
+				</li>
+				<li class="post">
+					<p>
+						3
+					</p>
+				</li>
+				<li class="post">
+					<p>
+						4
+					</p>
+				</li>
+				<li class="post">
+					<p>
+						5
+					</p>
+				</li>
+				<li class="post">
+					<p>
+						6
+					</p>
+				</li>
+				<li class="post">
+					<p>
+						7
+					</p>
+				</li>
+				<li class="post">
+					<p>
+						8
+					</p>
+				</li>
+				<li class="post">
+					<p>
+						9
+					</p>
+				</li>
+				<li class="post">
+					<p>
+						10
+					</p>
+				</li>
+			</ul>
+		</div>
+		<script src="https://rawgithub.com/hakarune/favorite-jquery-plugins/master/hammer.min.js"></script>
+		<script src="https://rawgithub.com/hakarune/favorite-jquery-plugins/master/scrollTo-min.js"></script>
+		<script>
+			function scrollToPosition(element) {
+				if (element !== undefined) {
+					$("#wrap").scrollTo(element, 800, {
+						margin: true
+					});
+				}
+			}
+
+			$(function() {
+
+				//Create an Array of posts
+				var posts = $('.post');
+				var position = 0; //Start Position
+
+				//Better performance to use Id selectors than class selectors
+				$('#wrap').hammer().on("swipeleft", function(event) {
+					//Scroll to next position
+					scrollToPosition(posts[position += 1]);
+					if (position === posts.length) {
+						scrollToPosition(posts[position = 0]);
+					}
+				});
+
+				$('#wrap').hammer().on("swiperight", function(event) {
+					//Scroll to prev position
+					scrollToPosition(posts[position -= 1]);
+					if (position === -1) {
+						scrollToPosition(posts[position = 0]);
+						alert('You have reached the begining'); 
+					}
+				});
+				function refresh() {
+					function resizePos(element) {
+						if (element !== undefined) {
+							$("#wrap").scrollTo(element, 0, {
+								margin: true
+							});
+						}
+					}
+					resizePos(posts[position]);
+				};
+				var resizeTimer;
+				$(window).resize(function() {
+					clearTimeout(resizeTimer);
+					resizeTimer = setTimeout(refresh, 100);
+				});
+			});
+		</script>
+	</body>
+</html>

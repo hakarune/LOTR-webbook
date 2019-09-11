@@ -1,0 +1,352 @@
+body {
+	margin:0px;
+	padding:0px;
+	font:normal 15px Times, serif;
+	background:#fff;
+}
+
+article {
+	width:34%;
+	min-width:500px;
+	position:relative;
+	padding-top:140px;
+	padding-bottom:25%;
+}
+
+section {
+	padding:40px;
+	margin-left:40px;
+	position:relative;
+	border-radius:15px;
+	transition:background .5s, color .5s;
+	-moz-transition:background .5s, color .5s;
+	-webkit-transition:background .5s, color .5s;
+	min-height: 80px;
+}
+ 
+section, section a {
+	color:#505C6A;
+	color:rgba(80,92,106,0);
+	text-decoration:none;
+	text-shadow:rgba(110,142,165,1) 0px 0px 4px;
+	
+}
+
+section.active {
+	background:#393834;
+	color:#E1DED5;
+	-webkit-box-shadow: inset 0px 0px 8px 1px rgba(235, 235, 235, .8);
+	box-shadow: inset 0px 0px 8px 1px rgba(235, 235, 235, .8);
+}
+
+section.active a { color:gold; }
+
+section.active small { color:#aaa; text-shadow: #000 0px 0px 2px; text-align:center; line-height:20px;}
+
+h1 { font-size:2.8em; line-height:1.2em; font-family: 'Bilbo Swash Caps', cursive;}
+
+h2 { font-size:1.2em; }
+
+h1,h2 { margin:0px 0px 10px; text-align:center;}
+
+p { margin:0px; }
+
+#cover p {text-align:center;}
+
+
+
+.footer {
+	display:block;
+	margin-top:10px;
+}
+
+.cover.title:before {
+	content:'';
+	display:block;
+	width:100%;
+	height:300px;
+	margin:0px auto 20px;
+}
+@media (max-width:1200px) {
+	.cover.title:before {
+		height:200px;
+		margin: 5px auto 0;
+	}
+	#cover.active img {
+		width: 50%;
+	}
+}
+
+#cover img{ 
+	display: none;
+}
+
+#cover.active img{ 
+	margin: 0 auto;
+	opacity: 0.4;
+	display: block;
+}
+
+.title.cover.active:before { background:url(../images/lotro.jpg) no-repeat center; background-size:contain; }
+
+.cover.book1:before, .cover.book2:before, .cover.book3:before {
+	content:'';
+	display:block;
+	width:90%; height:218px;
+	margin:15% auto 20px;
+}
+
+#argonath:after, #cirith-ungol:after{
+	content: '';
+	display: block;
+	width: 90%;
+	text-align: center;
+	height: 100px;
+	margin-top: 44px;
+	margin: 20px auto 0px;
+}
+
+#argonath.active:after, #cirith-ungol.active:after {
+	background: url(../images/swipe_2.png) no-repeat center center;
+	background-size: contain;
+	opacity: 0.3;
+}
+
+.cover.book1:after, .cover.book2:after, .cover.book3:after {
+	content: 'Scroll ▾';
+	display: block;
+	width: 90%;
+	text-align: right;
+	height: 20px;
+	margin: 0 auto;
+	font-size:10px;
+	text-transform:uppercase;
+}
+
+/* BG from http://fan.theonering.net/~rolozo/cgi-bin/rolozo.cgi/image/hildebrandt?filename=fellowship.jpg */
+.book1.cover.active:before { background:url(../images/fellowship.jpg) no-repeat center center; background-size:contain; }
+
+/* BG from  */
+.book2.cover.active:before { background:url(../images/towers.jpg) no-repeat center center; background-size:contain; }
+
+/* BG from  */
+.book3.cover.active:before { background:url(../images/king.jpg) no-repeat center center; background-size:contain;}
+
+.book1, .book2, .book3 {display:none;}
+
+#progressbar, progress {
+	position: fixed;
+	top: 10px;
+	left: 1%;
+	width: 98%;
+	height: 6px;
+	z-index: 9999;
+	opacity:0.7;
+}
+
+progress[value]::-webkit-progress-bar {
+	background-color: whiteSmoke;
+	border-radius: 2px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+progress[value]::-webkit-progress-value {
+	border-radius: 10px;
+	box-shadow: 0 2px 5px rgba(255, 255, 255, 0.5) inset;
+	background-color: #74d04c;
+	/* Webkit background stripes and gradient */
+	background: -webkit-gradient(linear, 0 0, 44 44, color-stop(0, rgba(255, 255, 255, 0.17)), color-stop(0.25, rgba(255, 255, 255, 0.17)), color-stop(0.26, rgba(255, 255, 255, 0)), color-stop(0.5, rgba(255, 255, 255, 0)), color-stop(0.51, rgba(255, 255, 255, 0.17)), color-stop(0.75, rgba(255, 255, 255, 0.17)), color-stop(0.76, rgba(255, 255, 255, 0)), color-stop(1, rgba(255, 255, 255, 0))), -webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(255, 255, 255, 0)), color-stop(1, rgba(255, 255, 255, 0.35))), #74d04c;
+	
+	-webkit-box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4), inset 0px -1px 1px rgba(0, 0, 0, 0.2);
+	-o-box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4), inset 0px -1px 1px rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4), inset 0px -1px 1px rgba(0, 0, 0, 0.2);
+	/* Give it a higher contrast outline */
+	border: 1px solid #4c8932;
+	/* Animate */
+	-moz-animation: animate-stripes 2s linear infinite;
+	-webkit-animation: animate-stripes 2s linear infinite;
+	-o-animation: animate-stripes 2s linear infinite;
+	-ms-animation: animate-stripes 2s linear infinite;
+	-khtml-animation: animate-stripes 2s linear infinite;
+	animation: animate-stripes 2s linear infinite;
+ }
+
+progress[value]::-webkit-progress-value::after {
+	content: '';
+	width: 3px;
+	height: 3px;
+	position: absolute;
+	border-radius: 100%;
+	right: 7px;
+	top: 2px;
+	background-color: white;
+}
+
+progress[value]::-moz-progress-bar {
+	background-color: whiteSmoke;
+	border-radius: 2px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+	/* Mozilla (Firefox etc) background stripes */
+	/* Note: Mozilla's support for gradients is more true to the original design, allowing gradients at 30 degrees, as apposed to 45 degress in webkit. */
+	background: -moz-repeating-linear-gradient(top left -30deg, rgba(255, 255, 255, 0.17), rgba(255, 255, 255, 0.17) 15px, rgba(255, 255, 255, 0) 15px, rgba(255, 255, 255, 0) 30px), -moz-linear-gradient(rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%), #74d04c;
+	-moz-box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4), inset 0px -1px 1px rgba(0, 0, 0, 0.2);
+	-moz-animation: animate-stripes 2s linear infinite;
+}
+
+
+
+progress[value]::-moz-progress-bar-value:after  {
+	content: '';
+	width: 3px;
+	height: 3px;
+	position: absolute;
+	border-radius: 100%;
+	right: 7px;
+	top: 2px;
+	background-color: white;
+}
+
+
+section.active iframe {
+    width: 65%;
+	margin: 26px auto 0;
+	display:block;
+}
+
+iframe {
+    display:none;
+}
+
+
+#pane {
+	position:fixed;
+	top:0px;
+	bottom:0px;
+	right:0px;
+	width:67%;
+}
+
+#map{
+	position:absolute;
+	top:0px;
+	bottom:0px;
+	width:200%;
+	left:-50%;
+	transition:opacity 1s;
+	-moz-transition:opacity 1s;
+	-webkit-transition:opacity 1s;
+}
+
+.icon {
+	width:120px;
+	height:120px;
+	margin:-60px 0px 0px -60px;
+	background:url(../images/markers.png) no-repeat;
+	position:absolute;
+}
+ 
+.icon-cover { display:none; }
+.icon-hobbiton { background-position:-130px 0px;}
+.icon-hobbiton.active { background-position:-130px -120px;}
+.icon-maggot{ background-position:-260px 0px; }
+.icon-maggot.active { background-position:-260px -120px;}
+.icon-bree { background-position:-390px 0px; }
+.icon-bree.active { background-position: -390px -120px;}
+.icon-weathertop { background-position:-520px 0px; }
+.icon-weathertop.active { background-position:-520px -120px;}
+.icon-rivendell { background-position:-650px 0px; }
+.icon-rivendell.active { background-position:-650px -120px;}
+.icon-moria { background-position:-780px 0px; }
+.icon-moria.active { background-position:-780px -120px;}
+.icon-lothlorien { background-position:-910px 0px; }
+.icon-lothlorien.active { background-position:-910px -120px;}
+.icon-argonath { background-position:-1040px 0px; }
+.icon-argonath.active { background-position:-1040px -120px;}
+
+.icon-dead-marshes { background-position:-1170px 0px; }
+.icon-dead-marshes.active { background-position:-1170px -120px;}
+.icon-fangorn-1 { background-position:-1300px 0px; }
+.icon-fangorn-1.active { background-position:-1300px -120px;}
+.icon-fangorn-2 { background-position:-1428px 0px; }
+.icon-fangorn-2.active { background-position:-1428px -120px;}
+.icon-henneth-annun { background-position:-1560px 0px; }
+.icon-henneth-annun.active { background-position:-1560px -120px;}
+.icon-edoras { background-position:-1819px 0px; }
+.icon-edoras.active { background-position:-1819px -120px;}
+.icon-isengard { background-position:-1688px 0px; }
+.icon-isengard.active { background-position:-1688px -120px;}
+.icon-helms-deep { background-position:-1949px 0px; }
+.icon-helms-deep.active { background-position:-1949px -120px;}
+.icon-cirith-ungol { background-position:-2079px 0px; }
+.icon-cirith-ungol.active { background-position:-2079px -120px;}
+
+.icon-dunharrow { background-position:-2214px 0px; }
+.icon-dunharrow.active { background-position:-2214px -120px;}
+.icon-minastirith-1 { background-position:-2343px 0px; }
+.icon-minastirith-1.active { background-position:-2343px -120px;}
+.icon-mordor { background-position:-2473px 0px; }
+.icon-mordor.active { background-position:-2473px -120px;}
+.icon-black-gate { background-position:-2604px 0px; }
+.icon-black-gate.active { background-position:-2604px -120px;}
+.icon-mount-doom { background-position:-2733px 0px; }
+.icon-mount-doom.active { background-position:-2733px -120px;}
+.icon-minas-tirith-2 { background-position:-2343px 0px; }
+.icon-minas-tirith-2.active { background-position:-2343px -120px;}
+.spot-cover { display:none; }
+
+
+
+
+
+
+
+/* Distinguish the "cover page" visually other sections. */
+body.section-0 #map { opacity:0.5; }
+body.section-9 #map { opacity:0.5; }
+
+@media (max-width:640px) {
+	body {
+		font-size:12px;
+		line-height:16px;
+	}
+	article {
+		width:100%;
+		min-width:100%;
+		padding-top:0px;
+		padding-bottom:200%;
+	}
+	section {
+		text-shadow:none;
+		margin-left:0px;
+		padding:30px;
+	}
+	section.active {
+		position:fixed;
+		bottom:0px; left:0px; right:0px;
+	}
+	#pane { width:100%; }
+
+	#map{
+		top:-25%;
+		left:0%;
+		width:100%;
+		height:150%;
+	}
+	.cover {
+		height:60%;
+	}
+	
+	#cover {
+		height:91%;
+	}
+	
+	.cover:before {margin: 25% auto 20px auto;}
+}
+
+@media (min-width:1280px) {
+	body {
+		font-size:18px;
+		line-height:20px;
+	}
+}
+a.lightbox img {width:80px; height:auto;}
